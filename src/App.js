@@ -1,17 +1,38 @@
 import React from 'react';
 
-function Food({fav}){
-  return <h1>I like {fav}</h1>;
+function Food({ name, picture }){
+  return (
+    <div>
+      <h2>I like {name}</h2>
+      <img src={picture} />
+    </div>
+  );
 }
+
+const foodILike = [
+  {
+    name: "Ramen",
+    image:
+    "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg"
+  },
+  {
+    name: "Banh Mi",
+    image:
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20200205-bahn-mi-delish-ehg-9647-jpg-1582818279.jpg?crop=0.676xw:0.507xh;0.308xw,0.293xh&resize=1200:*"
+  },
+  {
+    name: "Chicken",
+    image:
+    "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/vimdb/270679.jpg"
+  }
+];
 
 function App() {
   return (
     <div>
-      <h1>Hello!!!!!!!!!!</h1>
-      <Food fav="kimchi" />
-      <Food fav="ramen" />
-      <Food fav="samgyeopsal" />
-      <Food fav="chukumi" />
+      {foodILike.map(dish => 
+      <Food name={dish.name} picture={dish.image} />
+      )}
     </div>
   );
 }
